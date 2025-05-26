@@ -14,6 +14,8 @@ class HomeClientActivity : AppCompatActivity() {
         val btnAgendar = findViewById<Button>(R.id.btnAgendar)
         val btnPerfil = findViewById<Button>(R.id.btnPerfil)
         val btnSair = findViewById<Button>(R.id.btnSair)
+        val btnMeusAgendamentos = findViewById<Button>(R.id.btnMeusAgendamentos)
+
 
         btnAgendar.setOnClickListener {
             Toast.makeText(this, "Agendamento", Toast.LENGTH_SHORT).show()
@@ -34,6 +36,10 @@ class HomeClientActivity : AppCompatActivity() {
             }
         }
 
+        btnMeusAgendamentos.setOnClickListener {
+            val intent = Intent(this, ListaAgendamentosActivity::class.java)
+            startActivity(intent)
+        }
 
         btnSair.setOnClickListener {
             finishAffinity()

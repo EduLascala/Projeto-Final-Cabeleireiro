@@ -41,6 +41,9 @@
         <!-- Tela Agendar Serviço -->
         <activity android:name=".AgendarServicoActivity" />
 
+        <!-- Tela Lista Agendamentos -->
+        <activity android:name=".ListaAgendamentosActivity" />
+
 
     </application>
 
