@@ -40,17 +40,23 @@ class ListaAgendamentosActivity : AppCompatActivity() {
                 db.agendamentoDao().listarTodos()
             }
 
-            if (agendamentos.isEmpty()) {
-                Toast.makeText(this@ListaAgendamentosActivity, "Nenhum agendamento encontrado.", Toast.LENGTH_SHORT).show()
-                return@launch
-            }
+            withContext(Dispatchers.Main) {
+                if (agendamentos.isEmpty()) {
+                    recyclerView.adapter = null
+                    Toast.makeText(this@ListaAgendamentosActivity, "Nenhum agendamento encontrado.", Toast.LENGTH_SHORT).show()
+                    return@withContext
+                }
 
-            recyclerView.adapter = AgendamentoAdapter(agendamentos,
-                onEditar = { editarAgendamento(it) },
-                onCancelar = { confirmarCancelamento(it) }
-            )
+                recyclerView.adapter = null // força a reinicialização do RecyclerView
+                recyclerView.adapter = AgendamentoAdapter(
+                    agendamentos,
+                    onEditar = { editarAgendamento(it) },
+                    onCancelar = { confirmarCancelamento(it) }
+                )
+            }
         }
     }
+
 
     private fun editarAgendamento(agendamento: Agendamento) {
         val servicos = arrayOf("Cabelo", "Barba", "Cabelo e Barba")
@@ -81,14 +87,25 @@ class ListaAgendamentosActivity : AppCompatActivity() {
             .setPositiveButton("Sim") { _, _ ->
                 lifecycleScope.launch {
                     withContext(Dispatchers.IO) {
-                        AppDatabase.getDatabase(this@ListaAgendamentosActivity).agendamentoDao().delete(agendamento)
+                        AppDatabase.getDatabase(this@ListaAgendamentosActivity)
+                            .agendamentoDao()
+                            .delete(agendamento)
                     }
-                    Toast.makeText(this@ListaAgendamentosActivity, "Agendamento cancelado!", Toast.LENGTH_SHORT).show()
-                    carregarAgendamentos()
+
+                    // Executa na thread principal após deletar
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@ListaAgendamentosActivity,
+                            "Agendamento cancelado!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        carregarAgendamentos()
+                    }
                 }
             }
             .setNegativeButton("Não", null)
             .show()
     }
+
 
 }

@@ -45,5 +45,12 @@ class HomeClientActivity : AppCompatActivity() {
             finishAffinity()
             startActivity(Intent(this, MainActivity::class.java))
         }
+
+        val btnPrecos = findViewById<Button>(R.id.btnPrecos)
+        btnPrecos.setOnClickListener {
+            val intent = Intent(this, PrecosActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

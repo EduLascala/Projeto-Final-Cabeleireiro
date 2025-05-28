@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#000000"
+    android:background="@drawable/fundo_inicial"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp">
@@ -19,6 +19,19 @@
         app:tint="#FFFFFF" />
 
     <!-- Título -->
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="226dp"
+        android:layout_height="198dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037"
+        app:srcCompat="@drawable/logo_app1" />
+
     <TextView
         android:id="@+id/tvRegisterTitle"
         android:layout_width="0dp"

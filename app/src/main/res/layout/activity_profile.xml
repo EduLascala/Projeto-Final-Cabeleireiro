@@ -1,19 +1,28 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!-- Imagem de fundo -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/fundo_telas2"
+        android:contentDescription="Fundo" />
 
     <!-- Conteúdo principal com scroll -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp"
-        android:background="#000000">
+        android:padding="24dp">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="48dp">  <!-- espaço para o botão voltar -->
+            android:paddingTop="48dp">
 
             <TextView
                 android:text="Meu Perfil"
@@ -25,57 +34,67 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:text="Usuário"
-                android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/tvUsername"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#CCCCCC"
-                android:textSize="16sp"
-                android:layout_marginBottom="16dp" />
+                android:orientation="vertical"
+                android:paddingStart="32dp">
 
-            <TextView
-                android:text="Email"
-                android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:text="Usuário"
+                    android:textColor="#FFFFFF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#CCCCCC"
-                android:textSize="16sp"
-                android:layout_marginBottom="16dp" />
+                <TextView
+                    android:id="@+id/tvUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CCCCCC"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp" />
 
-            <TextView
-                android:text="Nome Completo"
-                android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:text="Email"
+                    android:textColor="#FFFFFF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/tvFullName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#CCCCCC"
-                android:textSize="16sp"
-                android:layout_marginBottom="24dp" />
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CCCCCC"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:text="Nome Completo"
+                    android:textColor="#FFFFFF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CCCCCC"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="24dp" />
+
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/btnEditProfile"
-                android:layout_width="match_parent"
+                android:layout_width="330dp"
                 android:layout_height="wrap_content"
-                android:text="Editar Perfil"
+                android:layout_gravity="center_horizontal"
                 android:backgroundTint="#FFFFFF"
-                android:textColor="#000000"
+                android:padding="14dp"
+                android:text="Editar Perfil"
                 android:textAllCaps="false"
-                android:padding="14dp" />
+                android:textColor="#000000" />
 
         </LinearLayout>
     </ScrollView>
@@ -89,6 +108,6 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@android:drawable/ic_menu_revert"
         android:contentDescription="Voltar"
-        android:tint="#FFFFFF"
-        android:layout_gravity="top|start" />
+        android:layout_gravity="top|start"
+        app:tint="#FFFFFF" />
 </FrameLayout>

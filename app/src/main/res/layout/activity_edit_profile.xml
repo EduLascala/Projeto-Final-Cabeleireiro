@@ -1,19 +1,28 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!-- Imagem de fundo -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/fundo_telas2"
+        android:contentDescription="Fundo" />
 
     <!-- Conteúdo principal com scroll -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp"
-        android:background="#000000">
+        android:padding="24dp">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="48dp">  <!-- espaço para o botão voltar -->
+            android:paddingTop="48dp">
 
             <TextView
                 android:text="Meu Perfil"
@@ -28,41 +37,49 @@
             <TextView
                 android:text="Usuário"
                 android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
             <EditText
                 android:id="@+id/etUsername"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:enabled="false"
                 android:textColor="#CCCCCC"
                 android:background="@android:color/darker_gray"
                 android:padding="12dp"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:text="Email"
                 android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
             <EditText
                 android:id="@+id/etEmail"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:enabled="false"
                 android:textColor="#CCCCCC"
                 android:background="@android:color/darker_gray"
                 android:padding="12dp"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:text="Nome Completo"
                 android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
             <EditText
                 android:id="@+id/etFullName"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:inputType="text|textNoSuggestions|textVisiblePassword"
                 android:importantForAutofill="no"
@@ -71,48 +88,57 @@
                 android:background="@android:color/white"
                 android:padding="12dp"
                 android:layout_marginBottom="16dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal" />
 
-            <!-- Se não quiser senha, pode remover esses campos -->
             <TextView
                 android:text="Nova Senha"
                 android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
             <EditText
                 android:id="@+id/etNewPassword"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 android:padding="12dp"
                 android:layout_marginBottom="16dp"
                 android:inputType="textPassword"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:text="Confirmar Nova Senha"
                 android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
             <EditText
                 android:id="@+id/etConfirmNewPassword"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 android:padding="12dp"
                 android:layout_marginBottom="24dp"
                 android:inputType="textPassword"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal" />
+
 
             <Button
                 android:id="@+id/btnSave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="290dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
                 android:text="Salvar Alterações"
                 android:backgroundTint="#FFFFFF"
                 android:textColor="#000000"
                 android:textAllCaps="false"
                 android:padding="14dp" />
+
 
         </LinearLayout>
     </ScrollView>
@@ -126,6 +152,6 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@android:drawable/ic_menu_revert"
         android:contentDescription="Voltar"
-        android:tint="#FFFFFF"
-        android:layout_gravity="top|start" />
+        android:layout_gravity="top|start"
+        app:tint="#FFFFFF" />
 </FrameLayout>

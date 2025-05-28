@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@drawable/fundo_inicial"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="32dp"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="333dp"
+        android:layout_height="379dp"
+        app:srcCompat="@drawable/logo_app1" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -40,4 +47,5 @@
         android:backgroundTint="#FFFFFF"
         android:textAllCaps="false"
         android:padding="14dp"/>
+
 </LinearLayout>
