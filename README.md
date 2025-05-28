@@ -49,7 +49,7 @@ Aplicativo Android desenvolvido em Kotlin com Room DB local, permitindo que o cl
 
 ## 📸 Capturas de Tela
 
-> *(inserir imagens das principais telas aqui)*
+> Em breve
 
 ---
 
