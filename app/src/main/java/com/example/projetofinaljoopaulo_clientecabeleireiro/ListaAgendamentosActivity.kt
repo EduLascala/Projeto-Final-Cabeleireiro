@@ -21,38 +21,35 @@ class ListaAgendamentosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_agendamentos)
 
-        // Botão voltar
-        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
-            finish()
-        }
-
         recyclerView = findViewById(R.id.recyclerViewAgendamentos)
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+        findViewById<ImageButton>(R.id.btnBack).setOnClickListener { finish() }
 
         carregarAgendamentos()
     }
 
     private fun carregarAgendamentos() {
         val db = AppDatabase.getDatabase(this)
+        val sharedPref = getSharedPreferences("user_session", MODE_PRIVATE)
+        val username = sharedPref.getString("username", null) ?: return
 
         lifecycleScope.launch {
             agendamentos = withContext(Dispatchers.IO) {
-                db.agendamentoDao().listarTodos()
+                db.agendamentoDao().listarPorUsuario(username)
             }
 
             withContext(Dispatchers.Main) {
                 if (agendamentos.isEmpty()) {
                     recyclerView.adapter = null
                     Toast.makeText(this@ListaAgendamentosActivity, "Nenhum agendamento encontrado.", Toast.LENGTH_SHORT).show()
-                    return@withContext
+                } else {
+                    recyclerView.adapter = AgendamentoAdapter(
+                        agendamentos,
+                        onEditar = { editarAgendamento(it) },
+                        onCancelar = { confirmarCancelamento(it) }
+                    )
                 }
-
-                recyclerView.adapter = null // força a reinicialização do RecyclerView
-                recyclerView.adapter = AgendamentoAdapter(
-                    agendamentos,
-                    onEditar = { editarAgendamento(it) },
-                    onCancelar = { confirmarCancelamento(it) }
-                )
             }
         }
     }

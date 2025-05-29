@@ -29,6 +29,8 @@ class AgendarServicoActivity : AppCompatActivity() {
     private var dataSelecionada: Calendar? = null
     private var horaSelecionada: Calendar? = null
 
+    private lateinit var username: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agendar_servico)
@@ -46,6 +48,12 @@ class AgendarServicoActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
         spinnerServico.adapter = adapter
 
+        val sharedPref = getSharedPreferences("user_session", MODE_PRIVATE)
+        username = sharedPref.getString("username", null) ?: run {
+            Toast.makeText(this, "Sessão inválida. Faça login novamente.", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
         btnBack.setOnClickListener { finish() }
 
@@ -75,7 +83,7 @@ class AgendarServicoActivity : AppCompatActivity() {
 
     private fun showDatePicker() {
         val constraintsBuilder = CalendarConstraints.Builder()
-            .setValidator(DateValidatorPointForward.now())  // só datas futuras e hoje
+            .setValidator(DateValidatorPointForward.now())
 
         val datePicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText("Selecione a data")
@@ -88,7 +96,6 @@ class AgendarServicoActivity : AppCompatActivity() {
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = selection
 
-            // Verifica se caiu em segunda-feira, já avisa e não aceita
             val diaSemana = calendar.get(Calendar.DAY_OF_WEEK)
             if (diaSemana == Calendar.MONDAY) {
                 Toast.makeText(this, "Cabeleireiro fechado às segundas-feiras.", Toast.LENGTH_SHORT).show()
@@ -99,7 +106,6 @@ class AgendarServicoActivity : AppCompatActivity() {
             val formato = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             tvDataSelecionada.text = formato.format(calendar.time)
 
-            // Limpa hora selecionada ao trocar data
             horaSelecionada = null
             tvHoraSelecionada.text = ""
         }
@@ -124,7 +130,7 @@ class AgendarServicoActivity : AppCompatActivity() {
             }.timeInMillis.toString()
 
             val agendamentosDia = withContext(Dispatchers.IO) {
-                db.agendamentoDao().getAgendamentosBetween(inicioDia, fimDia)
+                db.agendamentoDao().getAgendamentosBetween(inicioDia, fimDia, username)
             }
 
             val horariosDisponiveis = mutableListOf<String>()
@@ -172,12 +178,8 @@ class AgendarServicoActivity : AppCompatActivity() {
 
     private fun confirmarAgendamento() {
         val servicoSelecionado = spinnerServico.selectedItem.toString()
-        if (dataSelecionada == null) {
-            Toast.makeText(this, "Por favor, selecione a data.", Toast.LENGTH_SHORT).show()
-            return
-        }
-        if (horaSelecionada == null) {
-            Toast.makeText(this, "Por favor, selecione a hora.", Toast.LENGTH_SHORT).show()
+        if (dataSelecionada == null || horaSelecionada == null) {
+            Toast.makeText(this, "Por favor, selecione a data e a hora.", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -192,6 +194,7 @@ class AgendarServicoActivity : AppCompatActivity() {
         }
 
         val novoAgendamento = Agendamento(
+            username = username,
             servico = servicoSelecionado,
             dataHora = calendarioCompleto.timeInMillis.toString()
         )
@@ -204,13 +207,11 @@ class AgendarServicoActivity : AppCompatActivity() {
             }
 
             if (existente != null) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        this@AgendarServicoActivity,
-                        "Essa data e hora já está ocupada. Escolha outro horário.",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
+                Toast.makeText(
+                    this@AgendarServicoActivity,
+                    "Essa data e hora já está ocupada.",
+                    Toast.LENGTH_LONG
+                ).show()
                 return@launch
             }
 
@@ -218,24 +219,18 @@ class AgendarServicoActivity : AppCompatActivity() {
                 db.agendamentoDao().insert(novoAgendamento)
             }
 
-            withContext(Dispatchers.Main) {
-                val millis = novoAgendamento.dataHora.toLongOrNull()
-                val dataFormatada = if (millis != null) {
-                    SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(Date(millis))
-                } else {
-                    "data inválida"
-                }
+            val dataFormatada = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                .format(Date(novoAgendamento.dataHora.toLong()))
 
-                Toast.makeText(
-                    this@AgendarServicoActivity,
-                    "Agendamento de '${novoAgendamento.servico}' para $dataFormatada confirmado!",
-                    Toast.LENGTH_LONG
-                ).show()
+            Toast.makeText(
+                this@AgendarServicoActivity,
+                "Agendamento de '${novoAgendamento.servico}' para $dataFormatada confirmado!",
+                Toast.LENGTH_LONG
+            ).show()
 
-                Handler(Looper.getMainLooper()).postDelayed({
-                    finish()
-                }, 2000)
-            }
+            Handler(Looper.getMainLooper()).postDelayed({
+                finish()
+            }, 2000)
         }
     }
 }

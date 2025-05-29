@@ -45,6 +45,13 @@ class LoginActivity : AppCompatActivity() {
             }
 
             lifecycleScope.launch {
+                if (username == "admin" && password == "admin") {
+                    val intent = Intent(this@LoginActivity, AdminHomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                    return@launch
+                }
+
                 val user = withContext(Dispatchers.IO) {
                     userDao.getUserByUsername(username)
                 }
@@ -56,7 +63,6 @@ class LoginActivity : AppCompatActivity() {
 
                 val isPasswordCorrect = PasswordUtil.verifyPassword(password, user.passwordHash)
                 if (isPasswordCorrect) {
-                    // Salva o username na sessão
                     val sharedPref = getSharedPreferences("user_session", MODE_PRIVATE)
                     with(sharedPref.edit()) {
                         putString("username", user.username)
@@ -67,9 +73,13 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this@LoginActivity, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity, HomeClientActivity::class.java)
                     startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@LoginActivity, "Senha incorreta", Toast.LENGTH_SHORT).show()
+                    return@launch
                 }
-
             }
         }
+
     }
 }

@@ -7,8 +7,7 @@ import androidx.room.PrimaryKey
 data class Agendamento(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
+    val username: String, // Associar o agendamento ao usuário
     val servico: String,
-    val dataHora: String   // Ex: "2025-05-25T15:30"
+    val dataHora: String
 )
-
-

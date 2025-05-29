@@ -29,7 +29,7 @@
         <!-- Tela de login -->
         <activity android:name=".LoginActivity" />
 
-        <!-- Tela Olá Cliente -->
+        <!-- Tela HomeCliente -->
         <activity android:name=".HomeClientActivity" />
 
         <!-- Tela Profile -->
@@ -46,6 +46,15 @@
 
         <!-- Tela de Preços -->
         <activity android:name=".PrecosActivity" />
+
+        <!-- Tela de HomeAdmin -->
+        <activity android:name=".AdminHomeActivity" />
+
+        <!-- Tela de Alterar Preços -->
+        <activity android:name=".AlterarPrecosActivity" />
+
+        <!-- Tela de Ver Todos os Agendamentos (admin) -->
+        <activity android:name=".VerTodosAgendamentosActivity" />
 
 
     </application>

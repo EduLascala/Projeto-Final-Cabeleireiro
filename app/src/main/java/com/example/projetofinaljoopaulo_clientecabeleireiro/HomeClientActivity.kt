@@ -2,6 +2,7 @@ package com.example.projetofinaljoopaulo_clientecabeleireiro
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -12,7 +13,10 @@ class HomeClientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_client)
 
+
         val tvWelcome = findViewById<TextView>(R.id.tvWelcome)
+        Log.d("DEBUG", "tvWelcome: $tvWelcome")
+
 
         // Recuperar nome completo do SharedPreferences
         val sharedPref = getSharedPreferences("user_session", MODE_PRIVATE)

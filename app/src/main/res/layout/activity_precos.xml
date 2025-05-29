@@ -12,18 +12,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/fundo_telas2" />
 
-    <!-- Botão de voltar -->
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@android:drawable/ic_menu_revert"
-        android:contentDescription="Voltar"
-        app:tint="#FFFFFF" />
-
     <!-- Conteúdo sobreposto -->
     <ScrollView
         android:layout_width="match_parent"
@@ -38,9 +26,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Título centralizado -->
-
-            <!-- BLOCO 1 -->
+            <!-- Título -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,6 +37,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <!-- BLOCO 1 - CABELO -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,9 +58,10 @@
                     android:layout_weight="1" />
 
                 <TextView
+                    android:id="@+id/tvPrecoCabelo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$ 30,00"
+                    android:text="R$ --"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -95,7 +83,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp" />
 
-            <!-- BLOCO 2 -->
+            <!-- BLOCO 2 - BARBA -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,9 +104,10 @@
                     android:layout_weight="1" />
 
                 <TextView
+                    android:id="@+id/tvPrecoBarba"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$ 30,00"
+                    android:text="R$ --"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -140,7 +129,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp" />
 
-            <!-- BLOCO 3 -->
+            <!-- BLOCO 3 - CABELO E BARBA -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -161,9 +150,10 @@
                     android:layout_weight="1" />
 
                 <TextView
+                    android:id="@+id/tvPrecoCabeloBarba"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$ 45,00"
+                    android:text="R$ --"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -184,7 +174,20 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp" />
-
         </LinearLayout>
     </ScrollView>
+
+    <!-- Botão de voltar -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_revert"
+        android:contentDescription="Voltar"
+        android:layout_gravity="top|start"
+        app:tint="#FFFFFF" />
+
 </FrameLayout>
