@@ -42,9 +42,10 @@ class AgendarServicoActivity : AppCompatActivity() {
         btnConfirmar = findViewById(R.id.btnConfirmar)
 
         val servicos = listOf("Cabelo", "Barba", "Cabelo e Barba")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, servicos)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapter = ArrayAdapter(this, R.layout.spinner_item, servicos)
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
         spinnerServico.adapter = adapter
+
 
         btnBack.setOnClickListener { finish() }
 
