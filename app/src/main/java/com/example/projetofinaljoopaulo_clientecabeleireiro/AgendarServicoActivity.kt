@@ -130,8 +130,9 @@ class AgendarServicoActivity : AppCompatActivity() {
             }.timeInMillis.toString()
 
             val agendamentosDia = withContext(Dispatchers.IO) {
-                db.agendamentoDao().getAgendamentosBetween(inicioDia, fimDia, username)
+                db.agendamentoDao().getAgendamentosEntreTodos(inicioDia, fimDia)
             }
+
 
             val horariosDisponiveis = mutableListOf<String>()
             for (hora in 8..19) {
@@ -159,7 +160,7 @@ class AgendarServicoActivity : AppCompatActivity() {
             }
 
             AlertDialog.Builder(this@AgendarServicoActivity)
-                .setTitle("Escolha um horário")
+                .setTitle("Horários Disponíveis")
                 .setItems(horariosDisponiveis.toTypedArray()) { _, which ->
                     val horaEscolhida = horariosDisponiveis[which]
                     tvHoraSelecionada.text = horaEscolhida

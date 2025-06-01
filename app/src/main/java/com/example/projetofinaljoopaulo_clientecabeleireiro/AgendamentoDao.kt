@@ -25,4 +25,10 @@ interface AgendamentoDao {
 
     @Query("SELECT * FROM agendamento ORDER BY dataHora")
     suspend fun listarTodosAgendamentos(): List<Agendamento>
+
+    @Query("SELECT * FROM agendamento WHERE dataHora BETWEEN :inicio AND :fim")
+    suspend fun getAgendamentosEntreTodos(inicio: String, fim: String): List<Agendamento>
+
+
+
 }

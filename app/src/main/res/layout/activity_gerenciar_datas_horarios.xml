@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Fundo -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        android:background="@drawable/fundo_telas2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="100dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnSelecionarData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selecionar Data"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:textAllCaps="false"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvDataSelecionada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nenhuma data selecionada"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"/>
+
+            <CheckBox
+                android:id="@+id/cbSelecionarTodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selecionar todos os horários"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:id="@+id/layoutHorarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnConfirmarIndisponivel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirmar (Indisponível)"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:textAllCaps="false"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btnResetDisponivel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Resetar (Disponível)"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Botão Voltar fixo -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_revert"
+        android:contentDescription="Voltar"
+        android:layout_gravity="top|start"
+        app:tint="#FFFFFF" />
+</FrameLayout>

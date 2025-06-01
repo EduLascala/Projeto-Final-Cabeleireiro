@@ -14,9 +14,9 @@ class AdminHomeActivity : AppCompatActivity() {
 
         val btnVerAgendamentos = findViewById<Button>(R.id.btnVerAgendamentos)
         val btnAlterarPrecos = findViewById<Button>(R.id.btnAlterarPrecos)
-        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        val btnSair = findViewById<Button>(R.id.btnSair)
 
-        btnBack.setOnClickListener {
+        btnSair.setOnClickListener {
             finish()
         }
 
@@ -27,5 +27,12 @@ class AdminHomeActivity : AppCompatActivity() {
         btnAlterarPrecos.setOnClickListener {
             startActivity(Intent(this, AlterarPrecosActivity::class.java))
         }
+
+        val btnGerenciarDatas = findViewById<Button>(R.id.btnGerenciarDatas)
+
+        btnGerenciarDatas.setOnClickListener {
+            startActivity(Intent(this, GerenciarDatasHorariosActivity::class.java))
+        }
+
     }
 }

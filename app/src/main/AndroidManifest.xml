@@ -27,7 +27,9 @@
         <activity android:name=".RegisterActivity" />
 
         <!-- Tela de login -->
-        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- Tela HomeCliente -->
         <activity android:name=".HomeClientActivity" />
@@ -55,6 +57,10 @@
 
         <!-- Tela de Ver Todos os Agendamentos (admin) -->
         <activity android:name=".VerTodosAgendamentosActivity" />
+
+        <!-- Tela de Gerenciar Datas e Horarios (admin) -->
+        <activity android:name=".GerenciarDatasHorariosActivity" />
+
 
 
     </application>

@@ -31,11 +31,12 @@ class VerTodosAgendamentosActivity : AppCompatActivity() {
 
     private fun carregarAgendamentos() {
         val db = AppDatabase.getDatabase(this)
-        val userDao = db.userDao() // supondo que você tenha UserDao
+        val userDao = db.userDao()
 
         lifecycleScope.launch {
             val agendamentos = withContext(Dispatchers.IO) {
                 db.agendamentoDao().listarTodosAgendamentos()
+                    .filter { it.username != "bloqueado" && it.servico != "BLOQUEIO" }
             }
 
             if (agendamentos.isEmpty()) {
@@ -56,7 +57,9 @@ class VerTodosAgendamentosActivity : AppCompatActivity() {
 
                     val tv = TextView(this@VerTodosAgendamentosActivity).apply {
                         val millis = agendamento.dataHora.toLongOrNull()
-                        val dataFormatada = if (millis != null) SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(Date(millis)) else "Data inválida"
+                        val dataFormatada = if (millis != null)
+                            SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(Date(millis))
+                        else "Data inválida"
                         text = "Cliente: $fullName\nServiço: ${agendamento.servico}\nHorário: $dataFormatada"
                         setTextColor(resources.getColor(android.R.color.white, theme))
                         textSize = 16f
@@ -67,5 +70,6 @@ class VerTodosAgendamentosActivity : AppCompatActivity() {
             }
         }
     }
+
 
 }
