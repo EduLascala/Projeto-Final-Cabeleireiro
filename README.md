@@ -67,6 +67,38 @@ O aplicativo utiliza o Room Database para persistência local de dados. O banco 
 
 ## 📸 Capturas de Tela
 
+### Telas Iniciais:
+* **Tela Inicial**
+![Tela Inicial](caminho/para/Tela_Inicial.jpg)
+* **Tela de Registro**
+![Tela de Registro](caminho/para/Tela_de_Registro.jpg)
+* **Tela de Login**
+![Tela de Login](caminho/para/Tela_de_Login.jpg)
+
+### Painel Cliente:
+* **Tela Principal Cliente**
+![Tela Principal Cliente](caminho/para/Tela_Principal_Cliente.jpg)
+* **Tela Agendar Serviço**
+![Tela Agendar Serviço](caminho/para/Tela_Agendar_Servico.jpg)
+* **Tela Meus Agendamentos**
+![Tela Meus Agendamentos](caminho/para/Tela_Meus_Agendamentos.jpg)
+* **Tela Lista de Preços Cliente**
+![Tela Lista de Preços Cliente](caminho/para/Tela_Lista_de_Precos_Cliente.jpg)
+* **Tela Meu Perfil Cliente**
+![Tela Meu Perfil Cliente](caminho/para/Tela_Meu_Perfil_Cliente.jpg)
+* **Tela Editar Meu Perfil**
+![Tela Editar Meu Perfil](caminho/para/Tela_Editar_Meu_Perfil.jpg)
+
+### Painel Administrativo:
+* **Tela Painel do Administrador**
+![Tela Painel do Administrador](caminho/para/Tela_Painel_do_Administrador.jpg)
+* **Tela Todos os Agendamentos (Admin)**
+![Tela Todos os Agendamentos (Admin)](caminho/para/Tela_Todos_os_Agendamentos_(Admin).jpg)
+* **Tela Gerenciar datas e horas (Admin)**
+![Tela Gerenciar datas e horas (Admin)](caminho/para/Tela_Gerenciar_datas_e_horas_(Admin).jpg)
+* **Tela Alterar Preços (Admin)**
+![Tela Alterar Preços (Admin)](caminho/para/Tela_Alterar_Precos_(Admin).jpg)
+
 ---
 
 ## ⚙️ Como Rodar o Projeto
