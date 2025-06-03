@@ -69,35 +69,58 @@ O aplicativo utiliza o Room Database para persistência local de dados. O banco 
 
 ### Telas Iniciais:
 * **Tela Inicial**
-![Tela Inicial](caminho/para/Tela_Inicial.jpg)
+* 
+    ![Tela Inicial](screenshots/Tela%20Inicial.jpg)
+  
 * **Tela de Registro**
-![Tela de Registro](caminho/para/Tela_de_Registro.jpg)
+* 
+    ![Tela de Registro](screenshots/Tela%20de%20Registro.jpg)
+  
 * **Tela de Login**
-![Tela de Login](caminho/para/Tela_de_Login.jpg)
+* 
+    ![Tela de Login](screenshots/Tela%20de%20Login.jpg)
 
 ### Painel Cliente:
 * **Tela Principal Cliente**
-![Tela Principal Cliente](caminho/para/Tela_Principal_Cliente.jpg)
+* 
+    ![Tela Principal Cliente](screenshots/Tela%20Principal%20Cliente.jpg)
+  
 * **Tela Agendar Serviço**
-![Tela Agendar Serviço](caminho/para/Tela_Agendar_Servico.jpg)
+* 
+    ![Tela Agendar Serviço](screenshots/Tela%20Agendar%20Serviço.jpg)
+  
 * **Tela Meus Agendamentos**
-![Tela Meus Agendamentos](caminho/para/Tela_Meus_Agendamentos.jpg)
+* 
+    ![Tela Meus Agendamentos](screenshots/Tela%20Meus%20Agendamentos.jpg)
+  
 * **Tela Lista de Preços Cliente**
-![Tela Lista de Preços Cliente](caminho/para/Tela_Lista_de_Precos_Cliente.jpg)
+* 
+    ![Tela Lista de Preços Cliente](screenshots/Tela%20Lista%20de%20Preços%20Cliente.jpg)
+  
 * **Tela Meu Perfil Cliente**
-![Tela Meu Perfil Cliente](caminho/para/Tela_Meu_Perfil_Cliente.jpg)
+* 
+    ![Tela Meu Perfil Cliente](screenshots/Tela%20Meu%20Perfil%20Cliente.jpg)
+  
 * **Tela Editar Meu Perfil**
-![Tela Editar Meu Perfil](caminho/para/Tela_Editar_Meu_Perfil.jpg)
+* 
+    ![Tela Editar Meu Perfil](screenshots/Tela%20Editar%20Meu%20Perfil.jpg)
 
 ### Painel Administrativo:
 * **Tela Painel do Administrador**
-![Tela Painel do Administrador](caminho/para/Tela_Painel_do_Administrador.jpg)
+* 
+    ![Tela Painel do Administrador](screenshots/Tela%20Painel%20do%20Administrador.jpg)
+  
 * **Tela Todos os Agendamentos (Admin)**
-![Tela Todos os Agendamentos (Admin)](caminho/para/Tela_Todos_os_Agendamentos_(Admin).jpg)
+* 
+    ![Tela Todos os Agendamentos (Admin)](screenshots/Tela%20Todos%20os%20Agendamentos%20(Admin).jpg)
+  
 * **Tela Gerenciar datas e horas (Admin)**
-![Tela Gerenciar datas e horas (Admin)](caminho/para/Tela_Gerenciar_datas_e_horas_(Admin).jpg)
+* 
+    ![Tela Gerenciar datas e horas (Admin)](screenshots/Tela%20Gerenciar%20datas%20e%20horas%20(Admin).jpg)
+  
 * **Tela Alterar Preços (Admin)**
-![Tela Alterar Preços (Admin)](caminho/para/Tela_Alterar_Precos_(Admin).jpg)
+* 
+    ![Tela Alterar Preços (Admin)](screenshots/Tela%20Alterar%20Preços%20(Admin).jpg)
 
 ---
 
